@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background: url('./assets/images/backgroud.jpg') no-repeat center / cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Translation {
+  display: flex;
+  width: 70vw;
+  height: 60vh;
+  flex-direction: column;
+  background-color: white;
+  padding: 30px;
+  opacity: 0.92;
+  padding-right: 50px;
+  border-radius: 10px;
+}
+
+.inputText {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  font-size: 20px;
+  outline: none;
+  max-width: 100%;
+}
+
+.outputText {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  font-size: 20px;
+  outline: none;
+}
+
+.content {
+  display: flex;
+  height: 30vh;
+  width: 100%;
+  gap: 50px;
+  margin-top: 30px;
+}
+
+.left {
+  width: 50%;
+  position: relative;
+}
+.right {
+  width: 50%;
+  position: relative;
+}
+
+textarea {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 6px 10px;
+  resize: none;
+}
+
+.languages {
+  outline: none;
+  width: 180px;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.title {
+  font-size: 26px;
+  color: green;
+  display: flex;
+  justify-content: center;
+}
+
+.chooseLanguage {
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.language1 {
+  width: 50%;
+}
+
+.arrowIcon {
+  width: 3%;
+  cursor: pointer;
+}
+.arrowIcon:hover {
+  opacity: 0.7;
+}
+
+.language2 {
+  width: 47%;
+}
+.labelLanguages {
+  margin-right: 10px;
+}
+
+.loadingIcon {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  color: blue;
+  top: 50%;
+  left: 50%;
+  animation: spinner 1s linear infinite;
+}
+
+@keyframes spinner {
+  from {
+    transform: translateY(-50%) translateX(-50%) rotate(0);
+  }
+  to {
+    transform: translateY(-50%) translateX(-50%) rotate(360deg);
+  }
+}
+
+.closeIcon {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  top: 10px;
+  right: -5px;
+}
+.closeIcon:hover {
+  opacity: 0.7;
+}
+select {
+  cursor: pointer;
+}
+
+.speakLeft,
+.speakRight {
+  position: absolute;
+  bottom: -10px;
+  left: 5px;
+  width: 20px;
+  height: 20px;
+  padding: 10px;
+  cursor: pointer;
+}
+.speakLeft:hover,
+.speakRight:hover {
+  background-color: #e5e5e5;
+  padding: 10px;
+  border-radius: 50%;
+}
