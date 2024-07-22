@@ -18,6 +18,7 @@ const Translation = () => {
   const [isShowCloseIcon, setIsShowCloseIcon] = useState<boolean>(false);
   const debounced = useDebounce(leftText, 700);
   const isCancelled = useRef<boolean>(false);
+
   useEffect(() => {
     fetchDataLanguage();
   }, []);
@@ -29,7 +30,7 @@ const Translation = () => {
     handleTranslate();
   }, [debounced, selectedLanguage1]);
 
-  const fetchDataLanguage = async () => {
+  const fetchDataLanguage = async (): Promise<void> => {
     const languages: object = await axios.get(`/lang-support`);
     if (languages) {
       setLanguages(languages);
@@ -38,7 +39,7 @@ const Translation = () => {
     }
   };
 
-  const handleTranslate = async () => {
+  const handleTranslate = async (): Promise<void> => {
     setLoading(true);
     isCancelled.current = false;
     const response: string = await axios.get(
@@ -66,7 +67,7 @@ const Translation = () => {
     }
   };
 
-  const handleSpeak = async (language: string, value: string) => {
+  const handleSpeak = async (language: string, value: string): Promise<void> => {
     try {
       if (!leftText.trim()) {
         return;
@@ -91,15 +92,15 @@ const Translation = () => {
     setRightText(e.target.value);
   };
 
-  const handleChangeLanguage1 = (event: ChangeEvent<HTMLSelectElement>) => {
+  const handleChangeLanguage1 = (event: ChangeEvent<HTMLSelectElement>): void => {
     setSelectedLanguage2(event.target.value);
   };
 
-  const handleChangeLanguage2 = (event: ChangeEvent<HTMLSelectElement>) => {
+  const handleChangeLanguage2 = (event: ChangeEvent<HTMLSelectElement>): void => {
     setSelectedLanguage1(event.target.value);
   };
 
-  const handleReverseLanguage = () => {
+  const handleReverseLanguage = (): void => {
     setSelectedLanguage1(selectedLanguage2);
     setSelectedLanguage2(selectedLanguage1);
     setLeftText(rightText);
